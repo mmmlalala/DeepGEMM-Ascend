@@ -6,6 +6,14 @@
 #include <c_api/asc_simd.h>
 #include <simt_api/device_functions.h>
 
+// __asc_aicore::printf / __asc_simt_vf::printf / __asc_simt_vf::__trap are only
+// *declared* by these headers; their definitions live in the matching
+// impl/utils/debug/*_impl.h files.  Without them bisheng fails with
+// "no member named 'printf' in namespace '__asc_aicore'" and
+// "use of undeclared identifier '__trap'".
+#include <utils/debug/asc_printf.h>
+#include <utils/debug/asc_assert.h>
+
 namespace deep_gemm::mega_moe::comm {
 
 // The predicate may advance work; true means the wait is complete

@@ -15,7 +15,7 @@
 // from host translation units. Keep it dependency-free.
 
 #include <cstdint>
-#include <utility>
+// #include <utility>  // bisheng 15.0.5 cannot parse libstdc++ std::pair under C++20
 
 // The device compiler (bisheng) defines __CCE__ and provides __aicore__ / __gm__. On the
 // host these are not keywords, so define them away — this lets a handful of small types
